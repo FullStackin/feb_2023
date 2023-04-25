@@ -40,18 +40,20 @@ app.use('/', [fourth, fifth]);
 // Sixth
 app.get('/other-resource', (req, res, next) => {
   console.log('Sixth');
-  next();
+  next('error');
 });
 
 // Seventh
 app.use((req, res, next) => {
   console.log('Seventh');
-  res.send('Message');
+  // res.err('Message');
+  next()
 });
 
 // Eighth
 app.use((err, req, res, next) => {
   console.log('Eighth');
+  console.log(err)
   res.send('Message');
 });
 
