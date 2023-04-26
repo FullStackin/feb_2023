@@ -12,6 +12,12 @@ VALUES
   ('Sky', 'Tyler'),
   ('Morgan', 'Jones'),
   ('Shannon', 'Noble'),
-  ('River', 'Song');
+  ('River', 'Song'),
+  ('Ryan', 'Jones'),
+  ('Amy', 'Pond');
 
 SELECT * FROM friends;
+
+UPDATE friends
+SET first_name = 'Ryder'
+WHERE first_name = 'Ryan' AND last_name = 'Pond';
