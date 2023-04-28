@@ -55,11 +55,42 @@
 -- LIMIT 3
 -- OFFSET 3;
 
+-- SELECT * FROM affiliations
+-- JOIN characters ON (affiliations.id = characters.affiliation_id)
+-- WHERE affiliations.name = 'Guardians of the Galaxy';
+
+-- SELECT * FROM character_abilities
+-- JOIN abilities ON (abilities.id = character_abilities.ability_id)
+-- JOIN characters ON (characters.id = character_abilities.character_id)
+-- WHERE characters.name = 'Matt Murdock';
+
+-- SELECT COUNT(*), characters.name FROM characters
+-- JOIN affiliations ON (characters.affiliation_id = affiliations.id)
+-- WHERE affiliations.name = 'Avengers';
+
+-- SELECT characters.name FROM characters
+-- JOIN affiliations ON (characters.affiliation_id = affiliations.id)
+-- WHERE affiliations.name = 'Avengers';
+
+-- SELECT AVG(popularity) FROM characters
+-- WHERE affiliation_id = 3;
+
+
+-- SELECT AVG(popularity), name, affiliation_id FROM characters
+-- GROUP BY affiliation_id
+-- HAVING AVG(popularity) >= 80;
+
+
+
 SELECT * FROM affiliations
 JOIN characters ON (affiliations.id = characters.affiliation_id)
 WHERE affiliations.name = 'Guardians of the Galaxy';
 
-SELECT * FROM character_abilities
-JOIN abilities ON (abilities.id = character_abilities.ability_id)
-JOIN characters ON (characters.id = character_abilities.character_id)
-WHERE characters.name = 'Matt Murdock';
+SELECT * FROM characters
+WHERE affiliation_id IN (
+    SELECT id FROM affiliations
+    WHERE affiliations.is_good = true
+);
+
+
+-- I wanted to do WHERE birth_year IN ( Min(), Max() )
