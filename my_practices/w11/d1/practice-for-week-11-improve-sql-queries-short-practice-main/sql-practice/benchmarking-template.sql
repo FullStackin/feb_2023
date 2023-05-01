@@ -3,7 +3,9 @@
 ----------
 -- Query:  
 
-
+SELECT * FROM cats 
+JOIN cat_toys ON (cats.id = cat_toys.cat_id)
+WHERE cat_toys.toy_id = 5;
 
 -- Paste your results below (as a comment):
 
@@ -15,12 +17,15 @@
 -- Step 1 - Analyze the Query
 ----------
 -- Query:
-
+EXPLAIN QUERY PLAN
+SELECT * FROM cats 
+JOIN cat_toys ON (cats.id = cat_toys.cat_id)
+WHERE cat_toys.toy_id = 5;
 
 
 -- Paste your results below (as a comment):
 
-
+-- avg: .000200?
 
 -- What do your results mean?
 
@@ -39,11 +44,11 @@
 ----------
 -- Query (to be used in the sqlite CLI):
 
-
+CREATE INDEX idx_cat_toys_toy_id ON cat_toys(toy_id);
 
 -- Paste your results below (as a comment):
 
-
+-- avg: ~.000125?
 
 
 

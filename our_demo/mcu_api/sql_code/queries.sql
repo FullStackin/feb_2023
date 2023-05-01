@@ -94,3 +94,9 @@ WHERE affiliation_id IN (
 
 
 -- I wanted to do WHERE birth_year IN ( Min(), Max() )
+
+
+-- Benchmarking names
+-- initial query about 0.000100 sec
+
+-- CREATE INDEX idx_names_first ON names(first_name);
